@@ -5,11 +5,7 @@ function p = logistic(X, w)
   % p = exp(w'*X)./(1+ exp(w'*X)) a 1 x N vector.
     
   cnst = log(1e200);
-  if length(w) == size(X,1)
-    tmp = w(:)' * X;
-  elseif length(w) == size(X,1)+1 
-    tmp = w(2:end)' * X + w(1);
-  end
+  tmp = w(:)' * X;
   p = zeros(1, size(X,2));
   idx1 = (tmp>cnst);
   % sidx1=sum(idx1)
